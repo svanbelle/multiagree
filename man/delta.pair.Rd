@@ -40,7 +40,6 @@ data(depression)
 attach(depression)
 delta.pair(data=cbind(diag,BDI,diag,GHQ),cluster_id=ID,weight='unweighted',multilevel=FALSE)
 
-
 #dataset (multilevel) (Vanbelle, xxx)
 
 data(FEES)

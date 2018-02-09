@@ -34,9 +34,6 @@
 #' dat<-cbind(val_CO,val_COR,val_MH,val_MHR,val_TB,val_TBR) #formating the data matrix
 #' delta.pair(data=dat,cluster_id=subject,weight='equal')
 
-
-
-
 delta.pair<-function(data,cluster_id,weight,multilevel=T,a.level=0.05)
 {
   if (a.level>1 | a.level<0) stop("the significance level should be between 0 and 1")
@@ -378,16 +375,6 @@ delta.many1<-function(data,cluster_id,ncat=c(2,3),multilevel=T,a.level=0.05)
 }  
 
 
-
-
-
-
-
-
-
-
-
-
 #'  Compare many (multilevel) Conger kappa coefficients using the delta method
 #' 
 #' This function performs Hotelling's T square test using a variance-covariance matrix based on the delta method to compare dependent Conger kappa coefficients
@@ -624,9 +611,6 @@ delta.many2<-function(data,cluster_id,nrat=c(6,6),multilevel=T,a.level=0.05)
   
   
 }
-
-
-
 
 
 #' Hotelling's T square test 
