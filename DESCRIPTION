@@ -1,0 +1,11 @@
+Package: multiagree
+Type: Package
+Title: Comparaison of dependent kappa coefficients
+Version: 2.1
+Date: 2018-02-09
+Author: Sophie Vanbelle
+Maintainer: Sophie Vanbelle <sophie.vanbelle@maastrichtuniversity.nl>
+Depends: irr, ellipse
+Description: This package compares dependent kappa coefficients using Hotelling's T square statistic. A multilevel structure of the data with two levels is allowed. If only one kappa statistic is required then a confidence interval is returned. 
+License: GPL-3
+RoxygenNote: 6.0.1
