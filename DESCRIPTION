@@ -1,8 +1,8 @@
 Package: multiagree
 Type: Package
 Title: Comparaison of dependent kappa coefficients
-Version: 2.1
-Date: 2018-02-09
+Version: 3.01
+Date: 2019-01-27
 Author: Sophie Vanbelle
 Maintainer: Sophie Vanbelle <sophie.vanbelle@maastrichtuniversity.nl>
 Depends: irr, ellipse

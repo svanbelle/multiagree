@@ -322,9 +322,9 @@ delta.many1<-function(data,cluster_id,ncat=c(2,3),multilevel=T,a.level=0.05)
     J[1:nkappa, 1:nkappa] <- 1
   }
   for (i in (1:nkappa)) {
-    J[(nkappa+i), (nkappa+1+sum(n_[i])):(nkappa +sum(ncat[1:i]))] <-t(p[(1+sum(n_[i])):(sum(ncat[1:i]))]) 
+    J[(nkappa+i), (nkappa+1+sum(n_[i])):(nkappa +sum(ncat[1:i]))] <-2*t(p[(1+sum(n_[i])):(sum(ncat[1:i]))]) 
   }
-  
+  #the formula of J was not correct prior to version 3.01
   var_PoPe<-J%*%V%*%t(J)
   
   #COMPUTE THE VARIANCE-COVARIANCE MATRIX FOR FLEISS KAPPA
