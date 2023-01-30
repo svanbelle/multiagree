@@ -645,9 +645,9 @@ hot.test<-function(kappa,var_kappa,a.level,NN){
   if (length(unique(kappa)) < length(kappa)){writeLines("Stop: The system is singular");return(list("kappa"=estimate,"cor"=result4));stop("The system is singular")}
   if (any(is.na(result4))|any(!is.na(diag(result4))==0) ){writeLines("Stop: There are missing values in the variance-covariance matrix of the kappa coefficients or null variances, Hotteling's test cannot be performed");
     return(list("kappa"=estimate,"cor"=result4));stop("Stop: There are missing values in the variance-covariance matrix of the kappa coefficients, Hotteling's test cannot be performed")}
-  if (any(result4>(1+10 * .Machine$double.eps)) | any(result4<(-1-10 * .Machine$double.eps))){writeLines("Stop: The covariances provided are not compatible with the variances");return(list("kappa"=estimate,"cor"=result4));
+  if (any(result4>(1+100 * .Machine$double.eps)) | any(result4<(-1-100 * .Machine$double.eps))){writeLines("Stop: The covariances provided are not compatible with the variances");return(list("kappa"=estimate,"cor"=result4));
     stop("The covariances provided are not compatible with the variances")}
-  if (!isSymmetric(result4,tol = 10 * .Machine$double.eps)){writeLines("Stop: The variance-covariance matrix is not symmetric");return(list("kappa"=estimate,"cor"=result4)); stop("The variance-covariance matrix is not symmetric")}
+  if (!isSymmetric(result4,tol = 100 * .Machine$double.eps)){writeLines("Stop: The variance-covariance matrix is not symmetric");return(list("kappa"=estimate,"cor"=result4)); stop("The variance-covariance matrix is not symmetric")}
   nkappa<-length(kappa)
   ncomb<-choose(nkappa,2) #number of pairwise comparisons
   labelk<-matrix(NA,nrow=ncomb,ncol=1)
@@ -665,7 +665,7 @@ hot.test<-function(kappa,var_kappa,a.level,NN){
   
   CT<-t(C)
   f <- function(m) class(try(solve(m),silent=T))=="matrix"
-  invert<-f(C%*%var_kappa%*%t(C))
+  invert<-f(C%*%var_kappa%*%t(C))[1]
   if (invert==FALSE){stop("The variance-covariance matrix cannot be inversed")}
   if (invert==TRUE){
   T2<-t(C%*%kappa)%*%solve(C%*%var_kappa%*%t(C))%*%C%*%kappa
